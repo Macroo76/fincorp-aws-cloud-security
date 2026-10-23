@@ -1,4 +1,4 @@
-# FinCorp — Task 6: RDS Security
+# FinCorp   Task 6: RDS Security
 
 ## Objective
 
@@ -35,8 +35,8 @@ The objectives were to:
 
 The RDS instance uses two database subnets:
 
-* `subnet-088a3741fa3b9998d` — `eu-west-1a`
-* `subnet-0a52fa201a853ca84` — `eu-west-1b`
+* `subnet-088a3741fa3b9998d`   `eu-west-1a`
+* `subnet-0a52fa201a853ca84`   `eu-west-1b`
 
 ---
 
@@ -112,7 +112,7 @@ Combined with the private DB subnet routing, this provides strong network isolat
 
 ### Result
 
-**PASS — RDS is not publicly accessible.**
+**PASS   RDS is not publicly accessible.**
 
 Evidence:
 
@@ -167,7 +167,7 @@ RDS PostgreSQL
 
 ### Result
 
-**PASS — PostgreSQL access is restricted to the application security group.**
+**PASS   PostgreSQL access is restricted to the application security group.**
 
 Evidence:
 
@@ -212,7 +212,7 @@ This ensures that RDS storage is encrypted at rest.
 
 ### Result
 
-**PASS — RDS storage encryption is enabled.**
+**PASS   RDS storage encryption is enabled.**
 
 Evidence:
 
@@ -232,7 +232,7 @@ This provides seven days of automated backup retention.
 
 ### Result
 
-**PASS — Automated backups are enabled with a seven-day retention period.**
+**PASS   Automated backups are enabled with a seven-day retention period.**
 
 Evidence:
 
@@ -276,7 +276,7 @@ DeletionProtection = True
 
 ### Result
 
-**REMEDIATED — RDS deletion protection is enabled.**
+**REMEDIATED   RDS deletion protection is enabled.**
 
 Evidence:
 
@@ -324,7 +324,7 @@ postgresql
 
 ### Result
 
-**REMEDIATED — PostgreSQL logs are exported to CloudWatch Logs.**
+**REMEDIATED   PostgreSQL logs are exported to CloudWatch Logs.**
 
 Evidence:
 
@@ -333,7 +333,7 @@ Evidence:
 
 ---
 
-# 11. Availability Review — Multi-AZ
+# 11. Availability Review   Multi-AZ
 
 The database subnet group contains subnets in two Availability Zones:
 
@@ -364,7 +364,7 @@ Production databases requiring higher availability should consider Multi-AZ depl
 
 ### Result
 
-**ACCEPTED LAB TRADE-OFF — Single-AZ deployment retained to control lab cost.**
+**ACCEPTED LAB TRADE-OFF   Single-AZ deployment retained to control lab cost.**
 
 Evidence:
 
@@ -437,10 +437,10 @@ The final architecture provides:
               No Internet Route
                     |
         +------------------------+
-        ¦     Private DB Subnet  ¦
-        ¦                        ¦
-        ¦    RDS PostgreSQL      ¦
-        ¦      :5432             ¦
+              Private DB Subnet   
+                                  
+             RDS PostgreSQL       
+               :5432              
         +-----------?------------+
                     |
               Database SG
@@ -473,13 +473,13 @@ Security controls:
 
 | Finding                                | Severity           | Status                 |
 | -------------------------------------- | ------------------ | ---------------------- |
-| RDS publicly accessible                | —                  | PASS                   |
-| DB subnet has Internet route           | —                  | PASS                   |
-| PostgreSQL open to Internet            | —                  | PASS                   |
-| PostgreSQL restricted to App SG        | —                  | PASS                   |
-| Storage encryption disabled            | —                  | PASS                   |
-| KMS encryption unavailable             | —                  | PASS                   |
-| Automated backups disabled             | —                  | PASS                   |
+| RDS publicly accessible                |                    | PASS                   |
+| DB subnet has Internet route           |                    | PASS                   |
+| PostgreSQL open to Internet            |                    | PASS                   |
+| PostgreSQL restricted to App SG        |                    | PASS                   |
+| Storage encryption disabled            |                    | PASS                   |
+| KMS encryption unavailable             |                    | PASS                   |
+| Automated backups disabled             |                    | PASS                   |
 | Deletion protection disabled           | Medium             | REMEDIATED             |
 | PostgreSQL CloudWatch logging disabled | Medium             | REMEDIATED             |
 | Multi-AZ disabled                      | Low / Availability | ACCEPTED LAB TRADE-OFF |

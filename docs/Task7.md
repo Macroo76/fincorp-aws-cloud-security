@@ -1,4 +1,4 @@
-# Task 7 — S3 Security
+# Task 7   S3 Security
 
 ## Objective
 
@@ -54,7 +54,7 @@ aws s3api get-bucket-acl --bucket fincore-lab-logs-174558682011
 
 ## Initial findings
 
-### Finding 1 — HTTPS-only transport was not explicitly enforced
+### Finding 1   HTTPS-only transport was not explicitly enforced
 
 The initial bucket policy did not contain an explicit `aws:SecureTransport` deny condition.
 
@@ -66,7 +66,7 @@ Although the bucket was not publicly accessible, there was no explicit policy-le
 
 ---
 
-### Finding 2 — No lifecycle/retention policy
+### Finding 2   No lifecycle/retention policy
 
 The following command returned:
 
@@ -86,7 +86,7 @@ For this lab, a 365-day retention period was selected.
 
 ---
 
-### Finding 3 — Object Ownership was not explicitly managed by Terraform
+### Finding 3   Object Ownership was not explicitly managed by Terraform
 
 AWS reported:
 
@@ -417,7 +417,7 @@ If future FinCorp application buckets containing sensitive business data are int
 | Log file validation           | PASS                                         |
 | Lifecycle retention           | PASS                                         |
 | Noncurrent version expiration | PASS                                         |
-| S3 data events                | Informational — not required for this bucket |
+| S3 data events                | Informational   not required for this bucket |
 
 ---
 
@@ -485,7 +485,7 @@ The `DenyInsecureTransport` statement ensures that an otherwise permitted S3 ope
 
 # 11. Task 7 Conclusion
 
-**Task 7 — S3 Security: COMPLETE**
+**Task 7   S3 Security: COMPLETE**
 
 The FinCorp S3 infrastructure was audited and hardened against public exposure, insecure transport, unmanaged object ownership, and indefinite log accumulation.
 

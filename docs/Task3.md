@@ -1,4 +1,4 @@
-# Task 3 — IAM Permissions Boundary for Development Users
+# Task 3   IAM Permissions Boundary for Development Users
 
 ## Objective
 
@@ -282,7 +282,7 @@ Development users remain separated from administrative and operational capabilit
 
 Task 2 and Task 3 provide different security controls.
 
-### Task 2 — Least Privilege
+### Task 2   Least Privilege
 
 Task 2 defines what Development users should be allowed to do.
 
@@ -299,7 +299,7 @@ StartInstances
 StopInstances
 ```
 
-### Task 3 — Permissions Boundary
+### Task 3   Permissions Boundary
 
 Task 3 defines the maximum permissions that Development users can receive through identity-based policies.
 
@@ -357,7 +357,7 @@ screenshots/task3/policy-simulator-alice.png
 
 ## Task 3 Status
 
-**Completed — Implemented, Validated, and Evidence Captured**
+**Completed   Implemented, Validated, and Evidence Captured**
 
 The IAM Permissions Boundary was successfully created and applied to all four Development users.
 

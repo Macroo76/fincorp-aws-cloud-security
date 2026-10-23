@@ -1,4 +1,4 @@
-# Task 04 — MFA & IAM Credential Security
+# Task 04   MFA & IAM Credential Security
 
 ## Objective
 
@@ -74,7 +74,7 @@ No active access keys were found for the nine FinCorp users.
 
 This was not a new remediation in Task 4.
 
-The access keys had already been removed during **Task 2 — IAM Least Privilege Remediation**.
+The access keys had already been removed during **Task 2   IAM Least Privilege Remediation**.
 
 Task 4 therefore focused specifically on MFA rather than repeating the access-key remediation.
 
@@ -267,7 +267,7 @@ The tests were performed against an EC2 instance satisfying the Operations polic
 Role = Application
 ```
 
-### Test 1 — StartInstances without MFA
+### Test 1   StartInstances without MFA
 
 The Policy Simulator was configured with:
 
@@ -291,7 +291,7 @@ screenshots/task4/without-MFA.png
 
 ---
 
-### Test 2 — StartInstances with MFA
+### Test 2   StartInstances with MFA
 
 The same authorization test was repeated with:
 
@@ -315,7 +315,7 @@ screenshots/task4/with-MFA.png
 
 ---
 
-### Test 3 — StopInstances
+### Test 3   StopInstances
 
 The same MFA validation was performed for:
 
@@ -340,18 +340,18 @@ The final authorization model for the Operations users is:
 
 ```text
                     Operations User
-                          ¦
+                           
                           ?
                  EC2 Start / Stop
-                          ¦
+                           
               +-----------------------+
-              ¦                       ¦
+                                       
        Role=Application?         MFA present?
-              ¦                       ¦
+                                       
              YES                     YES
-              ¦                       ¦
+                                       
               +-----------------------+
-                          ¦
+                           
                           ?
                        ALLOW
 ```

@@ -1,4 +1,4 @@
-# FinCorp — Task 5: Secure EC2
+# FinCorp   Task 5: Secure EC2
 
 ## Objective
 
@@ -12,7 +12,7 @@ The application servers should remain in private subnets without requiring publi
 
 ---
 
-## 1. Initial Security Finding — Broad SSH Access
+## 1. Initial Security Finding   Broad SSH Access
 
 ### Finding
 
@@ -66,17 +66,17 @@ Final architecture:
 
 ```text
                          AWS
-                          ¦
+                           
                  Session Manager
-                          ¦
+                           
                           ?
                 +------------------+
-                ¦  Private EC2 #1  ¦
-                ¦  Private EC2 #2  ¦
+                   Private EC2 #1   
+                   Private EC2 #2   
                 +------------------+
-                         ¦
+                          
              +-----------+------------+
-             ¦           ¦            ¦
+                                       
              ?           ?            ?
            SSM       SSMMessages      S3
         Interface     Interface      Gateway
@@ -107,11 +107,11 @@ Security relationship:
 
 ```text
 Application SG
-      ¦
-      ¦ TCP/443
+       
+        TCP/443
       ?
 VPCE SG
-      ¦
+       
       +-- SSM
       +-- SSMMessages
 ```
@@ -138,12 +138,12 @@ Therefore:
 
 ```text
 Private EC2
-    ¦
+     
     +-- dnf install amazon-ssm-agent
-                 ¦
+                  
                  ?
           Amazon Linux repo
-                 ¦
+                  
                  X
             No S3 route
 ```
@@ -154,13 +154,13 @@ An Amazon S3 **Gateway VPC Endpoint** was added and associated with the private 
 
 ```text
 Private EC2
-    ¦
+     
     ?
 Private Route Table
-    ¦
+     
     ?
 S3 Gateway Endpoint
-    ¦
+     
     ?
 Amazon S3
 ```
@@ -177,8 +177,8 @@ The application security group allows HTTPS traffic to the endpoint security gro
 
 ```text
 Application SG
-      ¦
-      ¦ TCP/443
+       
+        TCP/443
       ?
 VPCE SG
 ```
@@ -264,9 +264,9 @@ No administrative SSH access is required.
 
 ```text
 Application EC2
-     ¦
+      
      +-- TCP/443 ? SSM/SSMMessages Interface Endpoints
-     ¦
+      
      +-- S3 ? S3 Gateway Endpoint
 ```
 
@@ -293,27 +293,27 @@ The remediation provides several security improvements:
 
 ```text
                          Administrator
-                              ¦
-                              ¦
+                               
+                               
                               ?
                     AWS Systems Manager
                     Session Manager
-                              ¦
+                               
                               ?
                     +-----------------+
-                    ¦   Private EC2   ¦
-                    ¦                 ¦
-                    ¦ Application     ¦
+                        Private EC2    
+                                       
+                      Application      
                     +-----------------+
-                             ¦
+                              
                 +------------+-------------+
-                ¦            ¦             ¦
+                                            
                 ?            ?             ?
              SSM VPCE   SSMMessages VPCE  S3 VPCE
              Interface    Interface       Gateway
-                ¦            ¦             ¦
+                                            
                 +--------------------------+
-                             ¦
+                              
                          AWS Services
 ```
 
@@ -321,7 +321,7 @@ The remediation provides several security improvements:
 
 # 11. Final Result
 
-**Task 5 — Secure EC2: Completed**
+**Task 5   Secure EC2: Completed**
 
 The FinCorp EC2 instances are now administered through AWS Systems Manager Session Manager while remaining in private subnets.
 

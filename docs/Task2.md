@@ -1,4 +1,4 @@
-# Task 2 — IAM Remediation and Least-Privilege Implementation
+# Task 2  IAM Remediation and Least-Privilege Implementation
 
 ## Objective
 
@@ -296,7 +296,7 @@ This was an important security refinement because the `Role` tag controls eligib
 
 ---
 
-# 7. Developer Bob — S3 Remediation
+# 7. Developer Bob   S3 Remediation
 
 ## User
 
@@ -455,7 +455,7 @@ Developers receive only the EC2 inspection permissions required for their role.
 
 ```text
 Development
-    ¦
+     
     +-- DescribeInstanceAttribute
     +-- DescribeInstances
 ```
