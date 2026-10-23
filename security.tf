@@ -1,5 +1,4 @@
 resource "aws_security_group" "alb" {
-  depends_on = [ aws_security_group.app ]
   name        = "${local.name}-alb-sg"
   description = "FinCore ALB security group"
   vpc_id      = aws_vpc.main.id
