@@ -34,7 +34,7 @@
         "Resource" : "arn:aws:s3:::fincore-lab-dev-data/*",
         "Condition" : {
           "StringEquals" : {
-            "aws:username" : "dev_bob"
+            "aws:username" : "dev-bob"
           }
         }
       }
