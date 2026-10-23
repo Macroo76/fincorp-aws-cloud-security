@@ -88,7 +88,7 @@ Terraform plans are used to review proposed changes before applying them. State 
 │   ├── operations_assume_role.json
 │   └── sec-max-cloudtrail-read-only.json
 ├── docs/
-│   └── architecture.mmd
+│   └── architecture.md
 ├── alb.tf
 ├── cloudtrail.tf
 ├── compute.tf
