@@ -201,5 +201,5 @@ This is a learning and portfolio environment, not a claim of production certific
 
 This project demonstrates practical work with Terraform, AWS networking, IAM policy design, permissions boundaries, audit logging, and secure infrastructure operations. Its value comes from reproducible configuration, clear documentation, and evidence-backed security testing.
 
-**Author:** Macroo76  
+**Author:** Abdulbaset Essabri (Macroo76)  
 **Repository:** [fincorp-aws-cloud-security](https://github.com/Macroo76/fincorp-aws-cloud-security)
