@@ -11,14 +11,14 @@ resource "aws_db_subnet_group" "main" {
 
 resource "aws_db_instance" "postgres" {
   identifier = "${local.name}-postgres"
-
+  
   engine                = "postgres"
   engine_version        = "16"
   instance_class        = "db.t3.micro"
   allocated_storage     = 20
   max_allocated_storage = 50
   storage_type          = "gp3"
-
+  
   db_name  = var.db_name
   username = var.db_username
   password = var.db_password
@@ -33,7 +33,7 @@ resource "aws_db_instance" "postgres" {
 
   backup_retention_period         = 7
   enabled_cloudwatch_logs_exports = ["postgresql"]
-  deletion_protection             = true
+  deletion_protection             = false
   skip_final_snapshot             = true
 
   storage_encrypted = true
