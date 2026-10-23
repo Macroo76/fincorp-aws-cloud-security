@@ -31,6 +31,10 @@ The existing AWS environment contains the following employees:
 * Henry
 * Irene
 
+### Securtiy 
+
+* Max
+
 FinCorp already had an existing AWS infrastructure, and I was assigned to perform a security audit of the environment and identify potential security risks and violations of the **least-privilege principle**.
 
 ---
