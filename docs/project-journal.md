@@ -55,7 +55,7 @@ FinCorp already had an existing AWS infrastructure, and I was assigned to perfor
 
 ---
 
-# Task 1 � Existing Infrastructure Security Audit
+# Task 1  Existing Infrastructure Security Audit
 
 ## Objective
 
