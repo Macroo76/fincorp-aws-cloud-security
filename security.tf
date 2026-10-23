@@ -1,5 +1,5 @@
 resource "aws_security_group" "alb" {
-
+  depends_on = [ aws_security_group.app ]
   name        = "${local.name}-alb-sg"
   description = "FinCore ALB security group"
   vpc_id      = aws_vpc.main.id
@@ -12,13 +12,6 @@ resource "aws_security_group" "alb" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-egress {
-  description     = "HTTP to application targets"
-  from_port       = 80
-  to_port         = 80
-  protocol        = "tcp"
-  security_groups = [aws_security_group.app.id]
-}
 
   tags = merge(local.common_tags, {
     Name = "${local.name}-alb-sg"
@@ -30,15 +23,6 @@ resource "aws_security_group" "app" {
   name        = "${local.name}-app-sg"
   description = "FinCore application security group"
   vpc_id      = aws_vpc.main.id
-
-  ingress {
-    description     = "HTTP from ALB"
-    from_port       = 80
-    to_port         = 80
-    protocol        = "tcp"
-    security_groups = [aws_security_group.alb.id]
-  }
-
 
   tags = merge(local.common_tags, {
     Name = "${local.name}-app-sg"
@@ -84,6 +68,29 @@ resource "aws_security_group" "vpce" {
   })
 }
 
+# Allow the ALB to send HTTP traffic to application instances
+resource "aws_vpc_security_group_ingress_rule" "app_from_alb" {
+  security_group_id            = aws_security_group.app.id
+  referenced_security_group_id = aws_security_group.alb.id
+
+  from_port   = 80
+  to_port     = 80
+  ip_protocol = "tcp"
+
+  description = "HTTP from ALB to application instances"
+}
+
+# Allow the ALB to send HTTP traffic to its application targets
+resource "aws_vpc_security_group_egress_rule" "alb_to_app" {
+  security_group_id            = aws_security_group.alb.id
+  referenced_security_group_id = aws_security_group.app.id
+
+  from_port   = 80
+  to_port     = 80
+  ip_protocol = "tcp"
+
+  description = "HTTP to application targets"
+}
 
 resource "aws_vpc_security_group_ingress_rule" "vpce_from_app" {
 
