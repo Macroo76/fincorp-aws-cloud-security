@@ -199,7 +199,7 @@ resource "aws_iam_user_policy" "sec_max_cloudtrail_read" {
   user = aws_iam_user.sec-max.name
 
   policy = templatefile(
-    "${path.module}/policies/sec-max-cloudtrail-read-only.json",
+    "${path.module}/Policies/sec-max-cloudtrail-read-only.json",
     {
       logs_bucket_arn = aws_s3_bucket.logs.arn
     }
