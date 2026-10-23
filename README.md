@@ -23,7 +23,7 @@ The environment is designed around an Amazon VPC with public and private network
 - **Compute:** Two application EC2 instances support the application tier.
 - **Database:** Amazon RDS for PostgreSQL provides the database tier.
 - **Outbound connectivity:** Two NAT gateways support outbound access from private subnets.
-- **Administration:** A bastion host is included in the infrastructure configuration.
+- **Administration:** A bastion host is included in the infrastructure configuration and removed after using the ssm service.
 - **Management:** AWS Systems Manager (SSM) is configured for supported instance-management workflows.
 - **Audit logging:** AWS CloudTrail records API activity, with logs stored in an S3 bucket configured with security controls.
 - **Identity and access:** IAM policies, roles, trust policies, and developer permissions boundaries support access-control exercises.
