@@ -1,4 +1,4 @@
-# FinCorp Cloud Infrastructure � Project Journal
+# FinCorp Cloud Infrastructure  Project Journal
 
 This document records the development process, decisions,
 problems, troubleshooting and lessons learned throughout
@@ -14,7 +14,7 @@ Status: In Progress
 
 ## Tasks
 
-# FinCorp Cloud Infrastructure � Project Journal
+# FinCorp Cloud Infrastructure  Project Journal
 
 ## Project Background
 
@@ -112,11 +112,11 @@ Finally, I reviewed the users' access-key configuration and found long-lived acc
 
 # Security Findings
 
-## Finding 1 � Alice Has Excessive Administrative Privileges
+## Finding 1  Alice Has Excessive Administrative Privileges
 
 ### User
 
-Alice � Development
+Alice >> Development
 
 ### Evidence
 
@@ -142,11 +142,11 @@ Remove the unrestricted administrative permissions and replace them with a devel
 
 ---
 
-## Finding 2 � Bob Has Full S3 Access
+## Finding 2  Bob Has Full S3 Access
 
 ### User
 
-Bob � Development
+Bob >> Development
 
 ### Evidence
 
@@ -172,7 +172,7 @@ Bob should receive only the S3 permissions and resources required for his work r
 
 ---
 
-## Finding 3 � Development Group Has EC2 Start/Stop Permissions
+## Finding 3  Development Group Has EC2 Start/Stop Permissions
 
 ### Users affected
 
@@ -205,7 +205,7 @@ These permissions should be restricted to the Operations team where operational 
 
 ---
 
-## Finding 4 � Operations Policy Allows EC2 Actions Across the Account
+## Finding 4  Operations Policy Allows EC2 Actions Across the Account
 
 ### Users affected
 
@@ -244,11 +244,11 @@ In addition, MFA should be required before performing sensitive operational acti
 
 ---
 
-## Finding 5 � Finance User Emma Can Discover S3 Resources Outside Her Scope
+## Finding 5  Finance User Emma Can Discover S3 Resources Outside Her Scope
 
 ### User
 
-Emma � Finance
+Emma >> Finance
 
 ### Evidence
 
@@ -276,11 +276,11 @@ Restrict S3 listing and access to the resources required by the Finance departme
 
 ---
 
-## Finding 6 � Frank Has Excessive EC2 Permissions
+## Finding 6  Frank Has Excessive EC2 Permissions
 
 ### User
 
-Frank � Finance
+Frank >> Finance
 
 ### Evidence
 
@@ -306,7 +306,7 @@ Remove the EC2 policy from Frank and ensure that his permissions are limited to 
 
 ---
 
-# Finding 7 � MFA Is Not Configured
+# Finding 7  MFA Is Not Configured
 
 ### Finding
 
