@@ -1,0 +1,43 @@
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadCloudTrailConfiguration",
+      "Effect": "Allow",
+      "Action": [
+        "cloudtrail:DescribeTrails",
+        "cloudtrail:GetTrail",
+        "cloudtrail:GetTrailStatus",
+        "cloudtrail:GetEventSelectors",
+        "cloudtrail:LookupEvents"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ListCloudTrailLogs",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetBucketLocation"
+      ],
+      "Resource": "${logs_bucket_arn}",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": [
+            "cloudtrail",
+            "cloudtrail/*"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "ReadCloudTrailLogObjects",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": "${logs_bucket_arn}/cloudtrail/*"
+    }
+  ]
+}

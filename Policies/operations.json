@@ -1,0 +1,35 @@
+{
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Sid" : "DescribeInstances",
+        "Effect" : "Allow",
+        "Action" : "ec2:DescribeInstances",
+        "Resource" : "*"
+      },
+      {
+        "Sid" : "StartStopInstances",
+        "Effect" : "Allow",
+        "Action" : [
+          "ec2:StartInstances",
+          "ec2:StopInstances"
+        ],
+        "Resource" : "arn:aws:ec2:${region}:${account}:instance/*",
+        "Condition" : {
+          "StringEquals" : { "aws:ResourceTag/Role" : "Application" },
+          "Bool": {"aws:MultiFactorAuthPresent": "true"}
+        }
+      },
+      {
+        "Sid" : "EditNameTagOnly",
+        "Effect" : "Allow",
+        "Action" : "ec2:CreateTags",
+        "Resource" : "arn:aws:ec2:${region}:${account}:instance/*",
+        "Condition" : {
+          "ForAllValues:StringEquals" : { "aws:TagKeys" : ["Name"] },
+          "StringEquals" : { "aws:ResourceTag/Role" : "Application" },
+          "Bool": {"aws:MultiFactorAuthPresent": "true"}
+        }
+      }
+    ]
+  }

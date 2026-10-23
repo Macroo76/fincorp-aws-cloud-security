@@ -1,0 +1,42 @@
+{
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Sid" : "DeveloperMaximumEC2Permissions",
+        "Effect" : "Allow",
+        "Action" : [
+          "ec2:RunInstances",
+          "ec2:StartInstances",
+          "ec2:StopInstances",
+          "ec2:DescribeInstances",
+          "ec2:DescribeInstanceAttribute"
+        ],
+        "Resource" : "*"
+      },
+      {
+        "Sid" : "BobS3List",
+        "Effect" : "Allow",
+        "Action" : "s3:ListBucket",
+        "Resource" : "arn:aws:s3:::fincore-lab-dev-data",
+        "Condition" : {
+          "StringEquals" : {
+            "aws:username" : "dev_bob"
+          }
+        }
+      },
+      {
+        "Sid" : "BobS3ReadWrite",
+        "Effect" : "Allow",
+        "Action" : [
+          "s3:GetObject",
+          "s3:PutObject"
+        ],
+        "Resource" : "arn:aws:s3:::fincore-lab-dev-data/*",
+        "Condition" : {
+          "StringEquals" : {
+            "aws:username" : "dev_bob"
+          }
+        }
+      }
+    ]
+  }

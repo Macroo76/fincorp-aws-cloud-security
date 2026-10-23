@@ -1,0 +1,35 @@
+# Terraform working directory and state
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local secrets and configuration
+.env
+.env.*
+!.env.example
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+.aws/
+credentials
+secrets/
+
+# State recovery and backups
+state-recovery/
+*.backup
+*.bak
+
+# Personal MFA/QR images and local utilities
+dev-alice-qr.png
+mfa-george.png
+ssm-plugin.exe
+
+# Local machine files
+.DS_Store
+Thumbs.db
