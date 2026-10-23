@@ -167,7 +167,7 @@ Use this checklist to document actual test results as the project evolves.
 Evidence collected during testing is linked below.
 
 - [x] Confirm public and private subnet routing is correct.
-  See `screenshots/Task5/` for routing table evidence.
+  See `screenshots/task5/` for routing table evidence.
 - [x] Verify the ALB is the intended application entry point.
   ![App security group](screenshots/task5/Final-App-SG.png)
 - [x] Confirm application and database security groups restrict unnecessary inbound traffic.
@@ -177,13 +177,13 @@ Evidence collected during testing is linked below.
 - [x] Review developer permissions boundaries and effective permissions.
   ![IAM Policy Simulator - alice](screenshots/task3/policy-simulator-alice.png)
 - [x] Test IAM policies with representative allowed and denied actions.
-  See `screenshots/Task3/` for IAM Policy Simulator results.
+  See `screenshots/task3/` for IAM Policy Simulator results.
 - [x] Confirm CloudTrail is recording the intended management events.
   ![CloudTrail logs](screenshots/task7/cloudtrail-logs.png)
 - [x] Verify the S3 log bucket's encryption, public-access blocking, and access policy.
   ![S3 log bucket configuration](screenshots/task7/s3-bucket-policy.png)
 - [x] Test the intended SSM management workflow.
-  ![SSM session](screenshots/Task7/ssm.png)
+  ![SSM session](screenshots/task7/ssm.png)
 - [x] Check for unintended IAM users, access keys, or excessive permissions.
 - [x] Confirm Terraform state and secrets are excluded from Git.
 - [x] Review the final Git-tracked files for sensitive information.
